@@ -69,7 +69,9 @@ public class Series extends Content{
    //If an episode has no rating, use the average of the previous episodes or of all episodes, depending on the value of the previous parameter.
    //Throw CONTENT_EMPTY and VALUE_UNKNOWN if either of these cases occurs.
     public int rating(boolean previous) throws NeoFlixException{
-        if (episodes.isEmpty()) throw new NeoFlixException(NeoFlixException.CONTENT_EMPTY);
+        if (episodes.isEmpty()) {
+            throw new NeoFlixException(NeoFlixException.CONTENT_EMPTY);
+        }
         Integer[] values = new Integer[episodes.size()];
         int sumKnown = 0, known = 0;
         for (int i = 0; i < episodes.size(); i++){
@@ -78,16 +80,22 @@ public class Series extends Content{
                 sumKnown += values[i];
                 known++;
             } catch (NeoFlixException ex){
-                if (!ex.getMessage().equals(NeoFlixException.VALUE_UNKNOWN)) throw ex;
+                if (!ex.getMessage().equals(NeoFlixException.VALUE_UNKNOWN)) {
+                    throw ex;
+                }
                 values[i] = null;
-            }
+            } 
         }
-        if (known == 0) throw new NeoFlixException(NeoFlixException.VALUE_UNKNOWN);
+        if (known == 0) {
+            throw new NeoFlixException(NeoFlixException.VALUE_UNKNOWN);
+        }
         int sum = 0;
         for (int i = 0; i < values.length; i++){
             if (values[i] == null){
                 if (previous){
-                    if (i == 0) throw new NeoFlixException(NeoFlixException.VALUE_UNKNOWN);
+                    if (i == 0) {
+                        throw new NeoFlixException(NeoFlixException.VALUE_UNKNOWN);
+                    }
                     values[i] = sum / i;
                 } else {
                     values[i] = sumKnown / known;
