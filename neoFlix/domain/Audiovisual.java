@@ -24,9 +24,10 @@ public abstract class Audiovisual extends Content{
     
     @Override
     public int popularity() throws NeoFlixException{
-       if (attempts == 0) throw new NeoFlixException(NeoFlixException.VALUE_UNKNOWN);
-       return (completed*100)/attempts;
-    }    
+        if (attempts == 0) throw new NeoFlixException(NeoFlixException.VALUE_UNKNOWN);
+        if (completed > attempts) throw new NeoFlixException(NeoFlixException.DATA_ERROR);
+        return (completed*100)/attempts;
+    }
     
     
     @Override
