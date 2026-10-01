@@ -1,8 +1,15 @@
 #BlueJ package file
+<<<<<<< HEAD
 editor.fx.0.height=0
 editor.fx.0.width=0
 editor.fx.0.x=0
 editor.fx.0.y=0
+=======
+editor.fx.0.height=727
+editor.fx.0.width=1189
+editor.fx.0.x=367
+editor.fx.0.y=125
+>>>>>>> origin/master
 objectbench.height=233
 objectbench.width=1560
 package.divider.horizontal=0.6
@@ -27,8 +34,8 @@ target1.height=62
 target1.name=test
 target1.type=PackageTarget
 target1.width=80
-target1.x=140
-target1.y=200
+target1.x=490
+target1.y=70
 target2.height=62
 target2.name=domain
 target2.type=PackageTarget
