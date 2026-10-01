@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=NeoFlixException
+comment1.params=message
+comment1.target=NeoFlixException(java.lang.String)
+comment1.text=\r\n\ Constructor\ del\ mensaje\ para\ las\ excepciones\r\n
+numComments=2
